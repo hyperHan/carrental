@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="top.pitaya.carrental.dao.UserInfoDao">
+    <!-- parameterType 可以简写，因为在application.yml 配置过了，但是下面的type不可以 -->
+    <insert id="create" parameterType="top.pitaya.carrental.entity.UserInfoEntity" useGeneratedKeys="true" keyProperty="id">
+        insert into user_info(user_name,password)  values(#{userName},#{password});
+    </insert>
+
+    <resultMap id="BaseResultMap" type="top.pitaya.carrental.entity.UserInfoEntity">
+        <id column="id_user_info" property="idUserInfo" jdbcType="BIGINT"/>
+        <id column="user_name" property="userName" jdbcType="VARCHAR"/>
+        <id column="password" property="password" jdbcType="VARCHAR"/>
+    </resultMap>
+    <select id="getUserInfo" parameterType="Long" resultMap="BaseResultMap">
+        select * from user_info where id_user_info = #{id};
+    </select>
+
+</mapper>
+
+

@@ -1,0 +1,17 @@
+server:
+  port: 8001
+
+spring:
+  application:
+    name: payment-service
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource            # 当前数据源操作类型
+    driver-class-name: com.mysql.cj.jdbc.Driver              # mysql驱动包
+    url: jdbc:mysql://localhost:3306/carrental?serverTimezone=UTC&useUnicode=true&characterEncoding=utf-8&useSSL=false
+    username: root
+    password: root
+
+mybatis-plus:
+  mapperLocations: classpath:mapper/**/*Mapper.xml
+  type-aliases-package: top.pitaya.carrental.entity
+#  type-aliases-package: top.pitaya.carrental.entity    # 所有entity别名类所在包
