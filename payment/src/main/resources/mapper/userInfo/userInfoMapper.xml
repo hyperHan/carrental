@@ -3,7 +3,7 @@
 
 <mapper namespace="top.pitaya.carrental.dao.UserInfoDao">
     <!-- parameterType 可以简写，因为在application.yml 配置过了，但是下面的type不可以 -->
-    <insert id="create" parameterType="top.pitaya.carrental.entity.UserInfoEntity" useGeneratedKeys="true" keyProperty="id">
+    <insert id="create" parameterType="top.pitaya.carrental.entity.UserInfoEntity" useGeneratedKeys="true" keyProperty="idUserInfo">
         insert into user_info(user_name,password)  values(#{userName},#{password});
     </insert>
 
